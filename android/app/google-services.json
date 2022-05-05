@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "504794852223",
+    "project_id": "memoir-1b3b5",
+    "storage_bucket": "memoir-1b3b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504794852223:android:b2ed22aeb99a42a5d5c84a",
+        "android_client_info": {
+          "package_name": "com.aymen.khademni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504794852223-a7eqbpbk308hbl4gu6gckd9tt8bdsb0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC73DKiR6ehcFXvYNn1O_VbFYQ_trqhiYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504794852223-a7eqbpbk308hbl4gu6gckd9tt8bdsb0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
