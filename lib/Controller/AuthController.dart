@@ -88,7 +88,7 @@ class AuthController extends GetxController {
     }
   }
 
-  void register(String email, password,name) async {
+  void register(String email, password,name,int number) async {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);  
@@ -101,9 +101,13 @@ class AuthController extends GetxController {
           'password': password,
           'id': auth.currentUser.uid,
           'image_url': image,
+          'number':number,
+          'desc':"",
+          'job':'',
+          'wilaya':'',
         });    
     } catch (e) {
-      Get.snackbar(e.printError(),"");
+      Get.snackbar(e.toString(),"");
       print(e.toString());
     }
   }

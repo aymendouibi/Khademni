@@ -6,10 +6,17 @@ import '../../constant/firebase.dart';
 import '../../constant/widgets/logo.dart';
 import '../../constant/widgets/textfield.dart';
 
-class MyLogin extends StatelessWidget {
+class MyLogin extends StatefulWidget {
+  @override
+  State<MyLogin> createState() => _MyLoginState();
+}
+
+class _MyLoginState extends State<MyLogin> {
   final TextEditingController _emailController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
+
+bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +76,7 @@ class MyLogin extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Get.to(MyRegister());
+                Get.to(const MyRegister());
               },
             ),
             const SizedBox(
@@ -79,13 +86,15 @@ class MyLogin extends StatelessWidget {
               onPressed: () async {
                 authController.login(_emailController.text.trim(),
                     _passwordController.text.trim());
+                  
+                   
               },
-              child:  Text("Sign in".tr),
+              child:Text("Sign in".tr),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Color.fromARGB(255, 211, 211, 211),
+                primary: const Color.fromARGB(255, 211, 211, 211),
               ),
               onPressed: () {
                 authController.signInWithGoogle();

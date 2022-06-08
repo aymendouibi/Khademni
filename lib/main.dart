@@ -8,7 +8,6 @@ import 'package:memoire/constant/lang/language.dart';
 
 import 'package:memoire/constant/theme.dart';
 
-
 import 'Controller/AuthController.dart';
 
 void main() async {
@@ -16,30 +15,27 @@ void main() async {
   await Firebase.initializeApp().then((value) {
     Get.put(AuthController());
   });
-    await GetStorage.init();
-     Get.put(ServiceController());
-LoadTheme(); 
-loadLang(); 
+  await GetStorage.init();
+  Get.put(ServiceController());
+  LoadTheme();
+  loadLang();
 
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  
-  
-  
   @override
   Widget build(BuildContext context) {
-   var value = GetStorage().read('lang');
-    
+    var value = GetStorage().read('lang');
+
     return GetMaterialApp(
       translations: Language(),
       locale: Locale(value),
-      fallbackLocale: Locale('en'),
+      fallbackLocale: const Locale('en'),
       theme: light,
       darkTheme: dark,
       debugShowCheckedModeBanner: false,
-      home: Center(child: CircularProgressIndicator()),
+      home: const Center(child: CircularProgressIndicator()),
     );
   }
 }

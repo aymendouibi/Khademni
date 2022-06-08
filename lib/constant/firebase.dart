@@ -1,7 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:memoire/Controller/AuthController.dart';
@@ -13,4 +12,4 @@ FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 GoogleSignIn googleSign = GoogleSignIn();
 
 
-  String image = "https://firebasestorage.googleapis.com/v0/b/memoir-1b3b5.appspot.com/o/profil.png?alt=media&token=be4b3494-b118-4790-bc20-fcf20b935c17";
+  String image = "https://firebasestorage.googleapis.com/v0/b/memoir-1b3b5.appspot.com/o/profile%2FRectangle.png?alt=media&token=d5f9de1f-c4b8-4576-8500-429fa4c40864";

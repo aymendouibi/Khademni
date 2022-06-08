@@ -18,6 +18,7 @@ class _RegisterState extends State<MyRegister> {
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
+    final TextEditingController _numberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +59,28 @@ class _RegisterState extends State<MyRegister> {
                     controller: _nameController,
                     hint: "Full name",
                   ),
+                   const SizedBox(
+                height: 19,
+              ),
+             TextField(
+               keyboardType: TextInputType.number,
+      style: TextStyle(color: Colors.black),
+      autofocus: false,
+      decoration: InputDecoration(
+          hintText: "Enter Number",
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Color.fromARGB(255, 212, 0, 0)),
+          ),
+          hintStyle:
+              TextStyle(color: Color(0xFF5B0000), ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          filled: true,
+          fillColor: Color.fromARGB(255, 243, 243, 243)),
+      controller: _numberController,
+      
+    )
                   
                 ],
               ),
@@ -95,7 +118,8 @@ class _RegisterState extends State<MyRegister> {
               onPressed: () async {
                 authController.register(_emailController.text.trim(),
                     _passwordController.text.trim(),
-                    _nameController.text.trim()
+                    _nameController.text.trim(),
+                    int.parse(_numberController.text.trim())
                     );
                     
               },

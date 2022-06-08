@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -24,6 +23,7 @@ ValueNotifier<bool> get loading => _loading;
         _loading.value = false;
       }
       update();
+      _ServiceList.shuffle();
     }
     
     );

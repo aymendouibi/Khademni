@@ -1,9 +1,12 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:memoire/view/screens/MyFavorite.dart';
+import 'package:get/get.dart';
+import 'package:memoire/constant/widgets/logo.dart';
 
-import 'package:memoire/view/screens/MyHome.dart';
+import 'package:memoire/view/screens/home/MyHome.dart';
 import 'package:memoire/view/screens/Settings.dart';
+import 'package:memoire/view/screens/order/MyOrder.dart';
+import 'package:memoire/view/screens/search.dart';
 
 
 
@@ -32,6 +35,21 @@ class _MyControllerState extends State<MyController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: MyLogo(fontSize: 23,),
+        actions:  [
+          IconButton(icon: Icon(Icons.settings,color: Get.isDarkMode?Colors.white:Colors.black,),onPressed: (){
+            setState(() {
+              _selectedIndex=3;
+                _pageController.animateToPage(3,
+              duration: const Duration(milliseconds: 300), curve: Curves.ease);
+            });
+          },)
+
+        ],
+      ),
       bottomNavigationBar: BottomNavyBar(
         itemCornerRadius: 15,
         showElevation: true,
@@ -45,22 +63,22 @@ class _MyControllerState extends State<MyController> {
         items: [
           BottomNavyBarItem(
             icon: const Icon(Icons.house_sharp),
-            title: const Text('Home'),
+            title:  Text('Home'.tr),
             activeColor: Theme.of(context).primaryColor,
           ),
           BottomNavyBarItem(
             icon: const Icon(Icons.search),
-            title: const Text('Search'),
+            title:  Text('Search'.tr),
             activeColor: Theme.of(context).primaryColor,
           ),
           BottomNavyBarItem(
-            icon: const Icon(Icons.favorite),
-            title: const Text('Favorite'),
+            icon: const Icon(Icons.shopping_cart),
+            title:  Text('My Orders'.tr),
             activeColor: Theme.of(context).primaryColor,
           ),
           BottomNavyBarItem(
             icon: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title:  Text('Settings'.tr),
             activeColor: Theme.of(context).primaryColor,
           ),
         ],
@@ -74,8 +92,8 @@ class _MyControllerState extends State<MyController> {
             },
             children: <Widget>[
               MyHome(),
-              MyHome(),
-              const MyFavorite(),
+              CloudFirestoreSearch(),
+              const MyOrder(),
               MySettings(),
             ],
           ),
